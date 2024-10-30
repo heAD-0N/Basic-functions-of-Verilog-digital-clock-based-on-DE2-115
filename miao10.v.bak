@@ -1,0 +1,5 @@
+module miao10(clk10,cout);
+input clk10;
+output cout;
+assign cout=(qout==59)?1:0;
+endmodule

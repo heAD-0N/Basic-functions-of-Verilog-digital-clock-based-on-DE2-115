@@ -1,0 +1,15 @@
+module shi(qout,ah,reset,clk,cin,cout);
+input clk,reset,am,cin;
+output reg[7:0] qout;
+output cout;
+always@(posedge clk or posedge reset)
+begin
+	if(reset) qout=0;
+	else if(~am||cin)
+	begin
+   if(qout==59) qout=0;
+	        else qout=qout+1;end 
+
+end
+assign cout=(qout==59)?1:0;
+endmodule

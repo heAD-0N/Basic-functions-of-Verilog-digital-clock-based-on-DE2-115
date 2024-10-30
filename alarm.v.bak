@@ -1,0 +1,13 @@
+module alarm(en,clk,reset,cin,set,shi,daodian);
+input [7:0] shi;
+input reset,cin,clk,en;
+output reg[7:0] set;
+output daodian;
+always@(posedge clk or posedge reset)
+begin
+	if(reset) set=0;
+	else if(cin) set=set+1;
+
+end
+assign daodian=(en&&(set==shi))?1:0;
+endmodule

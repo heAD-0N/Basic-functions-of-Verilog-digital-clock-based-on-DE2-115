@@ -1,0 +1,26 @@
+module fp10(
+    input wire clk_in, 
+    input wire reset,  
+    output reg clk_out  
+);
+
+    reg [22:0] counter;   // 计数器，计数到 5,000,000（2^23次方足够）
+
+    // 参数定义
+    parameter DIVISION_FACTOR = 5000000;
+
+    always @(posedge clk_in or posedge reset) begin
+        if (reset) begin
+            counter <= 0;    
+            clk_out <= 0;  
+        end
+        else if (counter == DIVISION_FACTOR - 1) begin
+            counter <= 0;   
+            clk_out <= ~clk_out;  
+        end
+        else begin
+            counter <= counter + 1; 
+        end
+    end
+
+endmodule

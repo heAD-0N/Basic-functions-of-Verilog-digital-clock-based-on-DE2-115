@@ -1,0 +1,8 @@
+module naozhong(time_nao,time_date,switch,audio)
+	input wire [7:0] time_nao;
+	input wire [7:0] time_date;
+	input switch;
+	output audio;
+	
+	assign audio = (time_nao&&time_date) ? 1 : 0;
+endmodule

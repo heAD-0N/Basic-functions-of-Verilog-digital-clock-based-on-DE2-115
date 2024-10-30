@@ -1,0 +1,89 @@
+module music_synth(
+    input wire clk,        // 系统时钟
+    input wire reset,      // 复位信号
+    output wire [15:0] audio_out // 音频输出
+);
+
+// ---------------------------
+// 参数定义
+// ---------------------------
+parameter CLK_FREQ = 50000000; // FPGA板时钟频率50MHz
+parameter SAMPLE_RATE = 48000; // 音频采样率48kHz
+parameter NOTE_DURATION = 1000000; // 每个音符持续时间
+
+// 音符频率定义 (Hz)
+parameter C4 = 261;
+parameter D4 = 293;
+parameter E4 = 329;
+parameter F4 = 349;
+parameter G4 = 392;
+parameter A4 = 440;
+parameter B4 = 493;
+parameter C5 = 523;
+
+// 音符序列（这里你可以定义洛天依歌曲的音符，使用简单的例子代替）
+reg [31:0] note_freq;
+reg [31:0] note_index;
+
+// 音符表，暂时用几个简单音符代替
+reg [31:0] note_table[7:0]; // 存储音符
+initial begin
+    note_table[0] = C4;
+    note_table[1] = D4;
+    note_table[2] = E4;
+    note_table[3] = F4;
+    note_table[4] = G4;
+    note_table[5] = A4;
+    note_table[6] = B4;
+    note_table[7] = C5;
+end
+
+// ---------------------------
+// DDS (Direct Digital Synthesis) 直接数字合成模块
+// ---------------------------
+reg [31:0] phase_accum;
+reg [31:0] phase_step;
+wire [15:0] sine_wave;
+
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        phase_accum <= 32'd0;
+    end else begin
+        phase_accum <= phase_accum + phase_step;
+    end
+end
+
+// 查找正弦波表（简化）
+assign sine_wave = phase_accum[31] ? -16'h4000 : 16'h4000; // 简单方波生成，可用查找表换成正弦波
+
+// ---------------------------
+// 音符生成逻辑
+// ---------------------------
+reg [31:0] sample_counter;
+reg [31:0] note_timer;
+
+always @(posedge clk or posedge reset) begin
+    if (reset) begin
+        note_index <= 0;
+        sample_counter <= 0;
+        note_timer <= 0;
+        phase_step <= 0;
+    end else begin
+        // 音符切换计时
+        if (note_timer >= NOTE_DURATION) begin
+            note_timer <= 0;
+            note_index <= (note_index + 1) % 8; // 切换到下一个音符
+            note_freq <= note_table[note_index]; // 更新音符频率
+            phase_step <= (note_freq * 2**32) / SAMPLE_RATE; // 更新DDS步长
+        end else begin
+            note_timer <= note_timer + 1;
+        end
+    end
+end
+
+// ---------------------------
+// 音频输出
+// ---------------------------
+assign audio_out = sine_wave; // 输出音频信号
+
+endmodule

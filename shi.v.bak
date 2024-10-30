@@ -1,0 +1,15 @@
+module c24(mode,qout,ah,cout,reset,clk);
+input clk,reset,mode,ah;
+output reg[7:0] qout;
+output cout;
+always@(posedge clk or negedge ah)
+begin
+	if(reset) qout<=0;
+	case(mode)
+	0:begin if(qout==23) qout=0;
+	        else qout=qout+1;end
+	1:begin if(~ah) begin  if(qout==23) qout=0;
+	        else qout=qout+1;end 
+	  end		  
+
+end

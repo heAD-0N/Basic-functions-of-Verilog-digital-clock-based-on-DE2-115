@@ -1,0 +1,137 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 1991-2013 Altera Corporation
+# Your use of Altera Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Altera Program License 
+# Subscription Agreement, Altera MegaCore Function License 
+# Agreement, or other applicable license agreement, including, 
+# without limitation, that your use is for the sole purpose of 
+# programming logic devices manufactured by Altera and sold by 
+# Altera or its authorized distributors.  Please refer to the 
+# applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus II 64-Bit
+# Version 13.1.0 Build 162 10/23/2013 SJ Web Edition
+# Date created = 18:58:15  October 08, 2024
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		shuzizhong_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus II software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone IV E"
+set_global_assignment -name DEVICE EP4CE115F29C7
+set_global_assignment -name TOP_LEVEL_ENTITY shuzizhong
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:58:15  OCTOBER 08, 2024"
+set_global_assignment -name LAST_QUARTUS_VERSION 13.1
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 1
+set_global_assignment -name NOMINAL_CORE_SUPPLY_VOLTAGE 1.2V
+set_global_assignment -name EDA_SIMULATION_TOOL "ModelSim-Altera (VHDL)"
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT VHDL -section_id eda_simulation
+set_global_assignment -name VERILOG_FILE display.v
+set_global_assignment -name BDF_FILE shuzizhong.bdf
+set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "2.5 V"
+set_location_assignment PIN_AA17 -to ge[0]
+set_location_assignment PIN_AB16 -to ge[1]
+set_location_assignment PIN_AA16 -to ge[2]
+set_location_assignment PIN_AB17 -to ge[3]
+set_location_assignment PIN_AB15 -to ge[4]
+set_location_assignment PIN_AA15 -to ge[5]
+set_location_assignment PIN_AC17 -to ge[6]
+set_location_assignment PIN_AB28 -to reset
+set_global_assignment -name VERILOG_FILE fp1.v
+set_location_assignment PIN_R24 -to ah1
+set_global_assignment -name VERILOG_FILE shi.v
+set_global_assignment -name VERILOG_FILE bcd.v
+set_global_assignment -name VERILOG_FILE fen.v
+set_global_assignment -name VERILOG_FILE miao.v
+set_location_assignment PIN_N21 -to am1
+set_location_assignment PIN_Y2 -to clk1
+set_location_assignment PIN_AB19 -to min_ge[0]
+set_location_assignment PIN_AA19 -to min_ge[1]
+set_location_assignment PIN_AG21 -to min_ge[2]
+set_location_assignment PIN_AH21 -to min_ge[3]
+set_location_assignment PIN_AE19 -to min_ge[4]
+set_location_assignment PIN_AF19 -to min_ge[5]
+set_location_assignment PIN_AE18 -to min_ge[6]
+set_location_assignment PIN_AD18 -to min_shi[0]
+set_location_assignment PIN_AC18 -to min_shi[1]
+set_location_assignment PIN_AB18 -to min_shi[2]
+set_location_assignment PIN_AH19 -to min_shi[3]
+set_location_assignment PIN_AG19 -to min_shi[4]
+set_location_assignment PIN_AF18 -to min_shi[5]
+set_location_assignment PIN_AH18 -to min_shi[6]
+set_location_assignment PIN_AA25 -to sec_ge[0]
+set_location_assignment PIN_AA26 -to sec_ge[1]
+set_location_assignment PIN_Y25 -to sec_ge[2]
+set_location_assignment PIN_W26 -to sec_ge[3]
+set_location_assignment PIN_Y26 -to sec_ge[4]
+set_location_assignment PIN_W27 -to sec_ge[5]
+set_location_assignment PIN_W28 -to sec_ge[6]
+set_location_assignment PIN_V21 -to sec_shi[0]
+set_location_assignment PIN_U21 -to sec_shi[1]
+set_location_assignment PIN_AB20 -to sec_shi[2]
+set_location_assignment PIN_AA21 -to sec_shi[3]
+set_location_assignment PIN_AD24 -to sec_shi[4]
+set_location_assignment PIN_AF23 -to sec_shi[5]
+set_location_assignment PIN_Y19 -to sec_shi[6]
+set_location_assignment PIN_AD17 -to shi0
+set_location_assignment PIN_AE17 -to shi1
+set_location_assignment PIN_AG17 -to shi2
+set_location_assignment PIN_AH17 -to shi3
+set_location_assignment PIN_AF17 -to shi4
+set_location_assignment PIN_AG18 -to shi5
+set_location_assignment PIN_AA14 -to shi6
+set_global_assignment -name VERILOG_FILE alarm.v
+set_location_assignment PIN_G18 -to alarm_ge[0]
+set_location_assignment PIN_F22 -to alarm_ge[1]
+set_location_assignment PIN_E17 -to alarm_ge[2]
+set_location_assignment PIN_L26 -to alarm_ge[3]
+set_location_assignment PIN_L25 -to alarm_ge[4]
+set_location_assignment PIN_J22 -to alarm_ge[5]
+set_location_assignment PIN_H22 -to alarm_ge[6]
+set_location_assignment PIN_M24 -to alarm_shi[0]
+set_location_assignment PIN_Y22 -to alarm_shi[1]
+set_location_assignment PIN_W21 -to alarm_shi[2]
+set_location_assignment PIN_W22 -to alarm_shi[3]
+set_location_assignment PIN_W25 -to alarm_shi[4]
+set_location_assignment PIN_U23 -to alarm_shi[5]
+set_location_assignment PIN_U24 -to alarm_shi[6]
+set_location_assignment PIN_M21 -to alarm1
+set_location_assignment PIN_AC28 -to en
+set_location_assignment PIN_G19 -to daodian
+set_global_assignment -name VERILOG_FILE fp10.v
+set_global_assignment -name VERILOG_FILE mux2to1.v
+set_location_assignment PIN_Y23 -to naozhong
+set_global_assignment -name VERILOG_FILE naozhong.v
+set_location_assignment PIN_AB22 -to audio
+set_location_assignment PIN_Y24 -to nao_switch
+set_global_assignment -name VERILOG_FILE miao10.v
+set_global_assignment -name VERILOG_FILE audio.v
+set_global_assignment -name VERILOG_FILE m2to1.v
+set_global_assignment -name VERILOG_FILE fp1k.v
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
